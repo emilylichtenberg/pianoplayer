@@ -20,6 +20,7 @@
     "core-js": "^3.21.0",
     "css-loader": "^6.6.0",
     "mini-css-extract-plugin": "^2.5.3",
+    "octavian": "^2.2.0",
     "regenerator-runtime": "^0.13.9",
     "sass": "^1.49.7",
     "sass-loader": "^12.4.0",

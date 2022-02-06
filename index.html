@@ -12,8 +12,18 @@
 
 <body>
     <audio src=""></audio>
-    <button id="play-pause"></button>
-    <input type="range" id="volume" min="0" max="3" value="1" step=".1">
+    <div class="controls">
+        <input type="range" min="0" max="3" value="1" step=".1" list="volume" name="volume">
+        <datalist id="volume">
+            <option value="0" label="Mute">
+            <option value="3" label="Full Volume">
+        </datalist>
+        <button id="play-pause">PLAY</button>
+    </div>
+  
+    <div class="container">
+        <div class="piano"></div>
+    </div>
 </body>
 
 </html>
