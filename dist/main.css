@@ -155,11 +155,11 @@ div.active.B{
     background-color: #ebebeb;
 }
 
-#metronome {
+/* #metronome {
     -webkit-appearance: none;
     background-color: none;
-    
-}
+
+} */
 
 .startMetro {
     font-size: 25px;

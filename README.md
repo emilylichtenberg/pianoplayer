@@ -35,3 +35,19 @@ The project will be implemented using:
 * **Monday/Tuesday**: Feature enhancement for recording, volume changes, metronome.  Ensure features are working correctly.
 * **Wednesday**: Focus on styling so the layout of all the controllers is as desired and the webpage is appealing to user.
 * **Thursday Morning**: Deploy to GitHub.
+
+To Do List:
+[x] play note with click
+[x] play note with keyboard
+[x] play multiple notes at once
+[x] change volume on screen
+[] add metronome
+[] add recording option - if pause in middle of playback can you continue? restart? clear?
+[] update audio quality - sound like piano, multiple notes at once, fade in/out for no click
+[] format!!
+[] add github and linked in
+[] add welcome screen with music 
+
+Bug Tracker:
+- keyboard listener - the way i created callback i needed to invoked play function but didn't need to for click listener
+- metro slider - individually works but when i try to slide and then click increase the val acts up

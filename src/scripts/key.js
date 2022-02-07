@@ -26,7 +26,6 @@ class Key {
                 let key = document.createElement("div");
                 key.setAttribute('id',`${notes[j%notes.length]}${octave[i]}`);
                 key.classList.add(`${keyColors[j%keyColors.length]}`);
-                // key.innerText = 'hi'
                 piano.append(key);  
             }
         }
@@ -42,14 +41,14 @@ class Key {
 
     bindKeys() {
         const allKeys = Array.from(document.querySelector(".piano").children);
-        // let that = this
+        let that = this
         document.addEventListener('keydown', (e) => {
             // debugger 
             if (e.repeat) return;
             let pressedKey = e.key;
             let index = keyboardMap.indexOf(pressedKey);
             let currentKey = allKeys[index];
-            if (index > -1) this.playKey.bind(currentKey)();
+            if (index > -1) that.playKey.bind(currentKey)();
         })
     }
 
@@ -61,7 +60,7 @@ class Key {
         const note = new Octavian.Note(`${this.id}`);
         const osc = new Oscilator(key,note)
 
-        // if (Key.recording()) notestoPlay.push({
+        // if (this.recording()) notestoPlay.push({
         //     key: note,
         //     noteStart: Date.now() - startTime,
         //     noteEnd: 'x'
@@ -72,7 +71,7 @@ class Key {
         document.addEventListener('keyup', osc.stop.bind(osc));
     }
 
-    static recording() {
+    recording() {
         return this.recorder.classList.contains('active');
     }
 
