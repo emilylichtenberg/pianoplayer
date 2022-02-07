@@ -2,7 +2,8 @@ import Oscilator from './oscilator';
 const Octavian = require('octavian');
 
 const keyboardMap = ['q','2','w','3','e','r','5','t','6','y','7','u','i','9','o','0','p','z','s','x','d','c','f','v','b','h','n','j','m',',','l','.',';','/',"'"];
-
+let notesToPlay;
+let startTime;
 
 class Key {
 
@@ -10,6 +11,9 @@ class Key {
         this.createKeys();
         this.bindClick();
         this.bindKeys();
+        this.recorder = document.getElementById('record');
+        this.recorder.addEventListener('click',this.changeRecordStatus.bind(this))
+        this.playButton = document.getElementById('play-pause')
     }
 
     createKeys() {
@@ -51,15 +55,51 @@ class Key {
 
     playKey() {
         const key = this
+       
         this.classList.add("active");
+        
         const note = new Octavian.Note(`${this.id}`);
         const osc = new Oscilator(key,note)
+
+        // if (Key.recording()) notestoPlay.push({
+        //     key: note,
+        //     noteStart: Date.now() - startTime,
+        //     noteEnd: 'x'
+        // })
+
         osc.start();
         key.addEventListener('mouseup', osc.stop.bind(osc));
         document.addEventListener('keyup', osc.stop.bind(osc));
     }
 
- 
+    static recording() {
+        return this.recorder.classList.contains('active');
+    }
+
+    startRecord() {
+        this.recorder.innerHTML = 'STOP';
+        startTime = Date.now();
+        notesToPlay = [];
+    }
+
+    endRecord() {
+        this.recorder.innerHTML = 'RECORD';
+        this.playAllNotes();
+        //return notes?
+    }
+    changeRecordStatus() {
+        this.recorder.classList.toggle('active');
+        if (this.recorder.classList.contains('active')) {
+            this.startRecord();
+        } else {
+            this.endRecord();
+        }
+    }
+
+    playAllNotes() {
+        console.log(notesToPlay)
+        //pass in array of notes/time and do a for each with the key.playKey function?
+    }
     
 }
 

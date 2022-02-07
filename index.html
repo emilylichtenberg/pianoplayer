@@ -11,14 +11,32 @@
 </head>
 
 <body>
-    <audio src=""></audio>
     <div class="controls">
-        <input type="range" min="0" max="3" value="1" step=".1" list="volume" name="volume">
-        <datalist id="volume">
-            <option value="0" label="Mute">
-            <option value="3" label="Full Volume">
-        </datalist>
+        <input id="volume" type="range" min="0.0" max="5.0" value="1" step=".1" list="volume" name="volume">
+        <button id="record">RECORD</button> 
         <button id="play-pause">PLAY</button>
+        
+        <div class="metronome">
+            <div class="bpm">
+                <span class="metro-label">METRONOME:</span>
+                <br>
+                <!-- <span class="bpm-val">140</span>
+                <span class="bpm-label">BPM</span> -->
+            </div>
+            <div class="metro-speed">
+                <div id="decr-metro">-</div>
+                <input type="range" id="metronome" min="50" max="300" step="1">
+                <!-- <input type="number" id="metronome" value="120" min="50" max="300"> -->
+                <div id="incr-metro">+</div>
+            </div>
+            
+            <div class="timeSig">
+                <div class="decr-timeSig">DECR</div>
+                <div class="timeSig-val">4</div>
+                <div class="incr-timeSig">INCR</div>
+            </div>
+            <div class="startMetro">START</div>
+        </div>
     </div>
   
     <div class="container">
