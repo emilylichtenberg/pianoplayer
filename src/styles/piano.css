@@ -1,24 +1,46 @@
-@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap');
+html, body, header, nav, h1, a,
+ul, li, strong, main, button, i,
+section, img, div, h2, p, form,
+fieldset, label, input, textarea,
+span, article, footer, time, small {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  /* font: inherit; */
+  /* color: inherit; */
+  /* text-align: inherit;
+  text-decoration: inherit;
+  vertical-align: inherit; */
+  box-sizing: inherit;
+  background: transparent;
+}
+
 * {
     box-sizing: border-box;
     font-family: Arial, Helvetica, sans-serif;
-    /* padding: 0; */
-    margin: 0;
+    text-transform: uppercase;
 }
 
 body {
-    margin: 0;
-    /* min-height: 50vh; */
-    /* height: 150px; */
+    margin: 0 auto;
+    width: 2400px;
     display: flex;
     flex-direction: column;
-    /* justify-content: center;
-    align-items: center; */
-    background-color: lightblue;
+    align-items: center;
+    /* background-color: lightblue; */
+}
+
+#canvas {
+    position: absolute;
+    background-color: lightsteelblue;
+    z-index: 20;
+    margin-top: 150px;
+    display: none;
 }
 
 .container {
-    white-space: nowrap;
+    /* white-space: nowrap; */
     margin: 10px;
     /* position: relative;; */
 }
@@ -78,8 +100,9 @@ div.active.B{
 .controls {
     margin-bottom: 20px;
     padding: 10px;
-    position: relative;
+    /* position: relative; */
     display: flex;
+    justify-content: space-between;
 }
 
 #volume {
@@ -185,4 +208,29 @@ div.active.B{
 
 .decr-timeSig, .incr-timeSig {
     justify-content: space-between;
+}
+
+
+/* RESOURCES */
+.resources {
+    display: flex;
+    width: 2000px;
+    justify-content: space-between;
+}
+
+.instructions {
+    font-size: 30px;
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid black;
+    align-self: center;
+}
+.resources button {
+    margin: 10px;
+    font-size: 50px;
+    color: gray;
+    text-decoration: none;
+}
+button:visited {
+    color: gray;
 }

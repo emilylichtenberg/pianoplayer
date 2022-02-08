@@ -15,9 +15,9 @@ class Key {
         this.createKeys();
         this.bindClick();
         this.bindKeys();
-        this.recorder = document.getElementById('record');
-        this.recorder.addEventListener('click',this.changeRecordStatus.bind(this))
-        this.playButton = document.getElementById('play-pause')
+        // this.recorder = document.getElementById('record');
+        // this.recorder.addEventListener('click',this.changeRecordStatus.bind(this))
+        // this.playButton = document.getElementById('play-pause')
         // this.init();
     }
 
