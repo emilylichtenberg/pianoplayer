@@ -16,9 +16,12 @@
   "dependencies": {
     "@babel/core": "^7.17.0",
     "@babel/preset-env": "^7.16.11",
+    "@tonaljs/chord": "^4.6.5",
+    "@tonaljs/tonal": "^4.6.5",
     "babel-loader": "^8.2.3",
     "core-js": "^3.21.0",
     "css-loader": "^6.6.0",
+    "howler": "^2.2.3",
     "mini-css-extract-plugin": "^2.5.3",
     "octavian": "^2.2.0",
     "regenerator-runtime": "^0.13.9",

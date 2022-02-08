@@ -1,4 +1,7 @@
+import { note, interval, transpose } from '@tonaljs/tonal';
+import {chord} from '@tonaljs/chord';
 
+let metroInterval;
 class Metronome {
     
     constructor() {
@@ -13,8 +16,8 @@ class Metronome {
         this.timeSig = 4;
         this.startMetro = document.querySelector('.startMetro')
 
-        this.loudClick = new Audio('../loud-click.wav');
-        this.softClick = new Audio('../soft-click.wav');
+        this.loudClick = new Audio('./src/audio/loud-click.wav');
+        this.softClick = new Audio('./src/audio/soft-click.wav');
 
         this.addEvents()
     }
@@ -74,10 +77,23 @@ class Metronome {
         // debugger
         if (this.startMetro.classList.contains('active')) {
             this.startMetro.innerHTML = 'STOP';
-            setInterval();
+            this.startMetronome();
         } else {
-            this.startMetro.innerHTML = 'START'
+            this.startMetro.innerHTML = 'START';
+            this.stopMetronome();
         }
+    }
+
+    startMetronome() {
+        const that=this;
+        let intervalTime = (1/(this.bpm/60))*1000;
+        metroInterval = setInterval(() => {
+            that.loudClick.play();
+        }, intervalTime)
+    }
+
+    stopMetronome() {
+        clearInterval(metroInterval)
     }
 
 }

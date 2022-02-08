@@ -1,7 +1,11 @@
 import Oscilator from './oscilator';
+
 const Octavian = require('octavian');
 
-const keyboardMap = ['q','2','w','3','e','r','5','t','6','y','7','u','i','9','o','0','p','z','s','x','d','c','f','v','b','h','n','j','m',',','l','.',';','/',"'"];
+
+
+
+const keyboardMap = ['q','2','w','3','e','r','5','t','6','y','7','u','i','9','o','0','p','z','s','x','d','c','f','v','b','h','n','j','m',',','l','.',';','/',"'",""];
 let notesToPlay;
 let startTime;
 
@@ -14,6 +18,7 @@ class Key {
         this.recorder = document.getElementById('record');
         this.recorder.addEventListener('click',this.changeRecordStatus.bind(this))
         this.playButton = document.getElementById('play-pause')
+        // this.init();
     }
 
     createKeys() {
@@ -33,11 +38,13 @@ class Key {
 
     bindClick() {
         const allKeys = Array.from(document.querySelector(".piano").children);
-        allKeys.forEach(key => {
+        allKeys.forEach((key,i) => {
             // debugger
-            key.addEventListener('mousedown', this.playKey.bind(key))
+            key.addEventListener('mousedown', this.playKey.bind(key));
+            key.innerHTML = keyboardMap[i];
         })
     }
+
 
     bindKeys() {
         const allKeys = Array.from(document.querySelector(".piano").children);
