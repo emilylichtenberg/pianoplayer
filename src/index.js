@@ -1,8 +1,6 @@
 // import Key from './scripts/key';
 import Key from './scripts/key2';
 import Metronome from './scripts/metronome';
-import {Howler, Howl} from 'howler'; 
-import {note} from '@tonaljs/tonal';
 
 document.addEventListener('DOMContentLoaded', () => {
     const keys = new Key();
@@ -15,6 +13,4 @@ document.addEventListener('DOMContentLoaded', () => {
     instructionsButton.addEventListener('click', () => popUp.classList.toggle('display'));
     exit.addEventListener('click', () => popUp.classList.toggle('display'));
 
-    // const audio = document.getElementById('welcome-song');
-    // audio.play();
 });

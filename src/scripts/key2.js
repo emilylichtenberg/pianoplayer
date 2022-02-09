@@ -73,7 +73,6 @@ class Key {
         // while (piano.firstChild) {
         //     piano.removeChild(piano.firstChild);
         // }
-        // debugger
 
         const notes = ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"];
         const keyColors = ["W","B","W","B","W","W","B","W","B","W","B","W"];
@@ -202,7 +201,7 @@ class Key {
         } else {
              startTime = 0;
         }
-        // let startTime = 0;
+        
         for (let i = 24; i <= 96; i++) {
             this.soundHowl['_sprite'][i] = [startTime,noteLength];
             startTime += 4000;
