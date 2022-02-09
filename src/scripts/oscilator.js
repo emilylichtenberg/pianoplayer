@@ -13,18 +13,12 @@ class Oscilator {
         this.osc.frequency.value = note.frequency //from Octavian
         // this.osc.type = 'triangle'
 
-
         this.osc.connect(this.gain);
         this.gain.connect(audioContext.destination);
     }
 
     start() {
-        // this.volumeChange();
         this.osc.start();
-        // console.log(this.key.id);
-        // console.log(this.volume);
-        // console.log(this.volumeInput.value);
-        // console.log(this.gain);
     }
     
     stop() {
@@ -32,10 +26,6 @@ class Oscilator {
         this.osc.stop();
     }
 
-    // volumeChange() {
-    //     this.gain.gain.value = this.volumeInput.value;
-    //     debugger
-    // }
 }
 
 export default Oscilator;

@@ -6,55 +6,87 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" href="./dist/main.css" />
-    <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.12/css/all.css" integrity="sha384-G0fIWCsCzJIMAVNQPfjH08cyYaUtMwjJwqiRKxxE/rx96Uroj1BtIQ6MLJuheaO9" crossorigin="anonymous"> -->
-    <!-- <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script> -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.12/css/all.css" integrity="sha384-G0fIWCsCzJIMAVNQPfjH08cyYaUtMwjJwqiRKxxE/rx96Uroj1BtIQ6MLJuheaO9" crossorigin="anonymous">
+    <link rel="shortcut icon" type="image/png" href="./src/styles/favicon.png"/>
     <script src="./dist/main.js"></script>
     <title>PianoPlayer</title>
 </head>
 
 <body>
-    <canvas id="canvas" width="1800" height="600"></canvas>
-    <div class="controls">
-        <div class="volume-control">
-            <input id="volume" type="range" min="0.0" max="5.0" value="1" step=".1" list="volume" name="volume">
-        </div>
-        <!-- <button id="record">RECORD</button> 
-        <button id="play-pause">PLAY</button> -->
-        
-        <div class="metronome">
-            <div class="bpm">
-                <div class="metro-label">METRONOME:</div>
-                <br>
-                <div class="bpm-val">120</div>
-                <div class="bpm-label">BPM</div>
-            </div>
-            <div class="metro-speed">
-                <div class="decr-metro">DECR</div>
-                <input type="range" id="metronome" value="120" min="50" max="300" step="1">
-                <!-- <input type="number" id="metronome" value="120" min="50" max="300"> -->
-                <div class="incr-metro">INCR</div>
-            </div>
-            
-            <div class="timeSig">
-                <div class="decr-timeSig">DECR</div>
-                <div class="timeSig-val">4</div>
-                <div class="incr-timeSig">INCR</div>
-            </div>
-            <div class="startMetro">START</div>
+    <!-- <audio id="welcome-song">
+        <source src="./dist/audio/arabesques.mp3" type="audio/mp3">
+    </audio> -->
+    
+    <div class="instructions-popUp display">
+        <div class="text">
+            <p class="welcome">Welcome to Piano Player</p>
+            <br>
+            <p class="instructions-text">Click on any key or follow the keyboard shortcuts to create your masterpiece.</p>
+            <p class="instructions-text">Set the metronome to your preferred beats per measure and time signature to help keep the tempo.</p>
+            <p class="instructions-text">Then adjust the volume for the finishing touch.</p>
+            <br>
+            <p class="exit-instructions">Click here to get started. Enjoy!</p>
         </div>
     </div>
-  
+
+    <div class="resources">
+        <div class="instructions">ABOUT/HOW TO:</div>
+        <div class="title">Piano Player</div>
+        <div class="links">       
+            <button><a href="https://github.com/emilylichtenberg/pianoplayer" target=“_blank”><i class='fab fa-github'></i></a></button>
+            <button><a href="https://www.linkedin.com/in/emilylichtenberg/" target=“_blank”><i class='fab fa-linkedin'></i></a></button>
+        </div>
+    </div>
+
     <div class="container">
         <div class="piano"></div>
     </div>
 
-    <div class="resources">
-        <div class="instructions">About/How To</div>
-        <div class="links">       
-            <button><a href="https://github.com/emilylichtenberg/pianoplayer"><i class='fab fa-github'></i></a></button>
-            <button><a href="https://www.linkedin.com/in/emilylichtenberg/"><i class='fab fa-linkedin'></i></a></button>
+    <div class="controls">
+        
+        <div class="metronome">
+            <div class="bpm">
+                <div class="metro-label">METRONOME</div>
+                <div class="bpm-val">120</div>
+                <div class="bpm-label">BPM</div>
+            </div>
+            <div class="metro-speed">
+                <div class="decr-metro">-</div>
+                <input type="range" id="metronome" min="50" max="300" step="1">
+                <div class="incr-metro">+</div>
+            </div>
+
+            <div>Beats per Measure</div>
+            <div class="timeSig">
+                <div class="decr-timeSig">-</div>
+                <div class="timeSig-val">4</div>
+                <div class="incr-timeSig">+</div>
+            </div>
+            <div class="startMetro">START</div>
+        </div>
+        <div class="additional-controls">
+            <div class="volume-control">
+                <div class="vol-label">Volume</div>
+                <input id="volume" type="range" min="0.0" max="2.0" value="1" step=".1" list="volume" name="volume">
+            </div>
+            <div class="sound-type">Sound Type
+                <select id="sound-options">
+                    <option value="piano">Piano</option>
+                    <option value="string">String</option>
+                </select>
+            </div>
+            <div class="start-octave">Start Octave
+                <select id="octave-selection">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                </select>
+            </div>
         </div>
     </div>
+
 </body>
 
 </html>
+

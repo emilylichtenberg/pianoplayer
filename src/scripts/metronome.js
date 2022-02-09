@@ -1,7 +1,3 @@
-import { note, interval, transpose } from '@tonaljs/tonal';
-import {chord} from '@tonaljs/chord';
-
-let metroInterval;
 class Metronome {
     
     constructor() {
@@ -15,16 +11,19 @@ class Metronome {
         this.timeSigVal = document.querySelector('.timeSig-val');
         this.timeSig = 4;
         this.startMetro = document.querySelector('.startMetro')
+        
+        this.metroSlider.value = 120;
+        this.count = 0;
 
-        this.loudClick = new Audio('./src/audio/loud-click.wav');
-        this.softClick = new Audio('./src/audio/soft-click.wav');
+        this.highClick = new Audio('./dist/audio/high-click.mp3');
+        this.lowClick = new Audio('./dist/audio/low-click.mp3');
 
         this.addEvents()
     }
-    
+
     addEvents() {
         this.decrMetro.addEventListener('click',this.decreaseMetro.bind(this));
-        this.incrMetro.addEventListener('click', this.increaseMetro.bind(this));
+        this.incrMetro.addEventListener('click',this.increaseMetro.bind(this));
         this.metroSlider.addEventListener('input',this.updateMetroValue.bind(this));
         this.decrTimeSig.addEventListener('click',this.decreaseTimeSig.bind(this));
         this.incrTimeSig.addEventListener('click',this.increaseTimeSig.bind(this));
@@ -34,69 +33,81 @@ class Metronome {
     decreaseMetro() {
         if (this.bpm > 50) {
             this.bpm -= 1;
-            this.bpmEl.innerHTML = this.bpm;
+            this.bpmEl.textContent = this.bpm;
             this.metroSlider.value = this.bpm;
-            // debugger
         }
     }
     increaseMetro() {
         if (this.bpm < 300) {
-            this.bpm += 1;
-            this.bpmEl.innerHTML = this.bpm;
+            this.bpm += 1;  
+            this.bpmEl.textContent = this.bpm;
             this.metroSlider.value = this.bpm;
-            // debugger
         }
     }
     updateMetroValue() {
-        this.bpm = this.metroSlider.value;
-        if (this.bpm < 50 || this.bpm > 300) return;
-        this.bpmEl.innerHTML = this.bpm;
-        this.metroSlider.value = this.bpm;
-        // debugger
-        // console.log(this.bpm);
-        // console.log(this.metroSlider);
-        // console.log(this.metroSlider.value);
+        if (this.bpm >= 50 || this.bpm <= 300) {
+            this.bpm = parseInt(this.metroSlider.value);
+            this.bpmEl.textContent = this.bpm;
+            this.metroSlider.value = this.bpm;
+            this.metroInterval = (1/(this.bpm/60))*1000
+        }
     }
 
     decreaseTimeSig() {
-        if (this.timeSig > 2) {
+        if (this.timeSig > 1) {
             this.timeSig -= 1;
-            this.timeSigVal.innerHTML = this.timeSig;
+            this.timeSigVal.textContent = this.timeSig;
+            this.count = 0;
         }
     }
     increaseTimeSig() {
         if (this.timeSig < 8) {
             this.timeSig += 1;
-            this.timeSigVal.innerHTML = this.timeSig;
+            this.timeSigVal.textContent = this.timeSig;
+            this.count = 0;
         }
     }
 
     handleStartMetro() {
-        console.log('working')
         this.startMetro.classList.toggle('active');
-        // debugger
         if (this.startMetro.classList.contains('active')) {
-            this.startMetro.innerHTML = 'STOP';
+            this.startMetro.textContent = 'STOP';
             this.startMetronome();
         } else {
-            this.startMetro.innerHTML = 'START';
+            this.startMetro.textContent = 'START';
             this.stopMetronome();
         }
     }
 
     startMetronome() {
-        const that=this;
-        let intervalTime = (1/(this.bpm/60))*1000;
-        metroInterval = setInterval(() => {
-            that.loudClick.play();
-        }, intervalTime)
+        this.count = 0;
+        this.metroInterval = (1/(this.bpm/60))*1000 //val to use in set timeout
+        this.expectedTime = Date.now() + this.metroInterval;
+        this.timeout = setTimeout(this.loopMetro.bind(this), this.metroInterval);
+    }
+
+    playSound() {
+        if (this.count % this.timeSig === 0) {
+            this.highClick.play();
+        } else {
+            this.lowClick.play();
+        }
+        this.count += 1
     }
 
     stopMetronome() {
-        clearInterval(metroInterval)
+        clearTimeout(this.timeout)
+    }
+
+    loopMetro() {
+        let lag = Date.now() - this.expectedTime;
+        this.playSound();
+        this.expectedTime += this.metroInterval;
+        this.timeout = setTimeout(this.loopMetro.bind(this), this.metroInterval - lag);
     }
 
 }
 
 
 export default Metronome;
+

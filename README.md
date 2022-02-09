@@ -45,9 +45,11 @@ To Do List:
 [] add recording option - if pause in middle of playback can you continue? restart? clear?
 [] update audio quality - sound like piano, multiple notes at once, fade in/out for no click
 [] format!!
-[] add github and linked in
+[x] add github and linked in
 [] add welcome screen with music 
 
 Bug Tracker:
 - keyboard listener - the way i created callback i needed to invoked play function but didn't need to for click listener
-- metro slider - individually works but when i try to slide and then click increase the val acts up
+- metro slider - individually works but when i try to slide and then click increase the val acts up (.value from slider returns a string so i was incrementing a string!!! Had to parse int)
+    - cant use set interval
+- audio file load - add html 5

@@ -1,12 +1,20 @@
-import Key from './scripts/key';
-import Record from './scripts/record'
+// import Key from './scripts/key';
+import Key from './scripts/key2';
 import Metronome from './scripts/metronome';
-// import {Howler, howl} from 'howler'; 
-import HowlerClass from './scripts/howl'
+import {Howler, Howl} from 'howler'; 
+import {note} from '@tonaljs/tonal';
 
 document.addEventListener('DOMContentLoaded', () => {
     const keys = new Key();
-    // const recorder = new Record();
     const metro = new Metronome();
-    // new HowlerClass();
+
+    const popUp = document.querySelector('.instructions-popUp')
+    const instructionsButton = document.querySelector('.instructions')
+    const exit = document.querySelector('.exit-instructions')
+
+    instructionsButton.addEventListener('click', () => popUp.classList.toggle('display'));
+    exit.addEventListener('click', () => popUp.classList.toggle('display'));
+
+    // const audio = document.getElementById('welcome-song');
+    // audio.play();
 });
