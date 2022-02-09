@@ -17,6 +17,8 @@ class Metronome {
 
         this.highClick = new Audio('./dist/audio/high-click.mp3');
         this.lowClick = new Audio('./dist/audio/low-click.mp3');
+            this.highClick.volume = .5;
+            this.lowClick.volume = .3;
 
         this.addEvents()
     }

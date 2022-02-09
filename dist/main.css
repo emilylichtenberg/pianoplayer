@@ -109,11 +109,11 @@ div.active.B{
 
 #volume::-webkit-slider-thumb {
     -webkit-appearance: none;
-    width: 16px;
-    height: 16px;
+    width: 20px;
+    height: 20px;
     border-radius: 50%;
     background-color: navy;
-    margin-top: -6px;
+    margin-top: -8px;
     cursor: pointer;
 }
 

@@ -1,4 +1,3 @@
-// import Oscilator from './oscilator';
 import {Howler, Howl} from 'howler'; 
 import {note} from '@tonaljs/tonal';
 
@@ -26,7 +25,6 @@ class Key {
             onloaderror(error,message) {
                 console.log('Error:', {error, message})
             }
-            // volume: this.volumeInput
         });
 
         this.stringHowl = new Howl({
@@ -50,11 +48,21 @@ class Key {
             },
             onloaderror(error,message) {
                 console.log('Error:', {error, message})
-            },
-            onplay() {
-
             }
         });
+
+        this.fluteHowl = new Howl({
+            src: ['./dist/audio/flute.mp3'],
+            html5: true,
+            buffer: true,
+            onload() {
+                console.log('sound file loaded');
+            },
+            onloaderror(error,message) {
+                console.log('Error:', {error, message})
+            }
+        });
+
 
     }
     
@@ -183,21 +191,25 @@ class Key {
             this.soundHowl = this.stringHowl;
         } else if (this.soundSelector.value === 'guitar') {
             this.soundHowl = this.guitarHowl;
+        } else if (this.soundSelector.value === 'flute') {
+            this.soundHowl = this.fluteHowl;
         }
-        // debugger
+        
         const noteLength = 2000;
-        let startTime = 0;
+        let startTime;
+        if (this.soundSelector.value === 'flute') {
+             startTime = 300;
+        } else {
+             startTime = 0;
+        }
+        // let startTime = 0;
         for (let i = 24; i <= 96; i++) {
             this.soundHowl['_sprite'][i] = [startTime,noteLength];
             startTime += 4000;
         }
-        // const midi = (note(key.id).midi).toString()
-        // console.log(midi);
-        // console.log(key.id);
-        // debugger
-        // debugger
+
         this.soundHowl.volume(parseFloat(this.volumeInput.value));
-        // debugger
+   
         this.soundHowl.play((note(key.id).midi).toString());
     }
 
