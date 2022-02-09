@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.12/css/all.css" integrity="sha384-G0fIWCsCzJIMAVNQPfjH08cyYaUtMwjJwqiRKxxE/rx96Uroj1BtIQ6MLJuheaO9" crossorigin="anonymous">
     <link rel="shortcut icon" type="image/png" href="./src/styles/favicon.png"/>
     <script src="./dist/main.js"></script>
-    <title>PianoPlayer</title>
+    <title>Music Player</title>
 </head>
 
 <body>
@@ -19,7 +19,7 @@
     
     <div class="instructions-popUp display">
         <div class="text">
-            <p class="welcome">Welcome to Piano Player</p>
+            <p class="welcome">Welcome</p>
             <br>
             <p class="instructions-text">Click on any key or follow the keyboard shortcuts to create your masterpiece.</p>
             <p class="instructions-text">Set the metronome to your preferred beats per measure and time signature to help keep the tempo.</p>
@@ -31,7 +31,7 @@
 
     <div class="resources">
         <div class="instructions">ABOUT/HOW TO:</div>
-        <div class="title">Piano Player</div>
+        <div class="title">Music Player</div>
         <div class="links">       
             <button><a href="https://github.com/emilylichtenberg/pianoplayer" target=“_blank”><i class='fab fa-github'></i></a></button>
             <button><a href="https://www.linkedin.com/in/emilylichtenberg/" target=“_blank”><i class='fab fa-linkedin'></i></a></button>
@@ -67,22 +67,23 @@
         <div class="additional-controls">
             <div class="volume-control">
                 <div class="vol-label">Volume</div>
-                <input id="volume" type="range" min="0.0" max="2.0" value="1" step=".1" list="volume" name="volume">
+                <input id="volume" type="range" min="0.0" max="1.0" value=".5" step=".01" list="volume" name="volume">
             </div>
             <div class="sound-type">Sound Type
                 <select id="sound-options">
                     <option value="piano">Piano</option>
                     <option value="string">String</option>
+                    <option value="guitar">Guitar</option>
                 </select>
             </div>
-            <div class="start-octave">Start Octave
+            <!-- <div class="start-octave">Start Octave
                 <select id="octave-selection">
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
                     <option value="4">4</option>
                 </select>
-            </div>
+            </div> -->
         </div>
     </div>
 

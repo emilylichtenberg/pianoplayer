@@ -312,7 +312,7 @@ button:visited {
     align-self: center;
 }
 
-.volume-control {
+.volume-control, .sound-type {
     display: flex;
     flex-direction: column;
     font-size: 20px;
@@ -324,10 +324,19 @@ button:visited {
     height: 80px;
     align-items: center;
     justify-content: space-evenly;
+    /* margin: 2px; */
 }
 
-.vol-label {
+.vol-label, .sound-type {
     font-size: 25px;
+}
+
+.sound-type {
+    margin-top: 10px;
+}
+#sound-options {
+    font-size: 20px;
+    color: navy;
 }
 
 .instructions-popUp {
