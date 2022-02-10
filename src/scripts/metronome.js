@@ -82,10 +82,17 @@ class Metronome {
     }
 
     startMetronome() {
-        this.count = 0;
-        this.metroInterval = (1/(this.bpm/60))*1000 //val to use in set timeout
+        this.count = 0; // used to track each loop of the metronome to know which click sound to play
+        this.metroInterval = (1/(this.bpm/60))*1000 // val to use in set timeout
         this.expectedTime = Date.now() + this.metroInterval;
         this.timeout = setTimeout(this.loopMetro.bind(this), this.metroInterval);
+    }
+
+    loopMetro() {
+        this.playSound();
+        let lag = Date.now() - this.expectedTime; // calculate lag between expected time and actual time
+        this.expectedTime += this.metroInterval; 
+        this.timeout = setTimeout(this.loopMetro.bind(this), this.metroInterval - lag); // use altered interval time based on previous lag
     }
 
     playSound() {
@@ -101,12 +108,6 @@ class Metronome {
         clearTimeout(this.timeout)
     }
 
-    loopMetro() {
-        let lag = Date.now() - this.expectedTime;
-        this.playSound();
-        this.expectedTime += this.metroInterval;
-        this.timeout = setTimeout(this.loopMetro.bind(this), this.metroInterval - lag);
-    }
 
 }
 
