@@ -6,12 +6,13 @@ Link to live site: https://emilylichtenberg.github.io/pianoplayer/
 I started playing piano when I was five years old so for my Javascript project I will be creating an interactive online keyboard.  The webpage will contain two octaves of a piano and different ways with which to interact.  See below for additional details.
 
 ## Technologies
-* Howler:
-* Tonal: 
+In addition to Javascript, HTML and CSS, this project uses:
+* Howler: an audio library that creates an easy way to play and manipulate large audio files.  
+* Tonal: used minimally in the project but has built in methods to create chords, scales and progressions based on user input.
 
 ## Feature Highlight
 * Metronome: created to keep precise timing with specified bpm and time signature
-    - Initially the metronome was set up with a setInterval function but was noticing a lag between expected tick time and actual tick time.  
+    - Initially the metronome was set up with a setInterval function but I was noticing a lag between expected tick time and actual tick time.  To correct this I adjusted the interval time for each loop to subtract the previous lag.  Each individual loop can vary from 2-7 ms but the lag resets and remains fairly precise over time. Code below:
 
 ```javascript
     startMetronome() {
@@ -42,7 +43,44 @@ I started playing piano when I was five years old so for my Javascript project I
     }
 ```
 
-* Instrument Variety:
+* Instrument Variety: By using Howler to handle large audio files, I was able to load similarly structured files for different instruments and based on user input play the snippet from the correct file.
+```javascript
+    // Two examples of creating the howl
+    this.pianoHowl = new Howl({
+        src: ['./dist/audio/piano-tones.mp3'],
+        html5: true,
+        buffer: true,
+        onload() {
+            console.log('sound file loaded');
+        },
+        onloaderror(error,message) {
+            console.log('Error:', {error, message})
+        }
+    });
+
+    this.stringHowl = new Howl({
+        src: ['./dist/audio/string.mp3'],
+        html5: true,
+        buffer: true,
+        onload() {
+            console.log('sound file loaded');
+        },
+        onloaderror(error,message) {
+            console.log('Error:', {error, message})
+        }
+    });
+
+    // Selecting the correct howl to use in playback
+    if (this.soundSelector.value === 'piano') {
+        this.soundHowl = this.pianoHowl;
+    } else if(this.soundSelector.value === 'string') {
+        this.soundHowl = this.stringHowl;
+    } else if (this.soundSelector.value === 'guitar') {
+        this.soundHowl = this.guitarHowl;
+    } else if (this.soundSelector.value === 'flute') {
+        this.soundHowl = this.fluteHowl;
+    }
+```
 
 ## Next Steps
 * Create a record and playback feature

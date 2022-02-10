@@ -28,7 +28,7 @@ The project will be implemented using:
 * CSS
 * Canvas
 * Webpack
-* Library of audio for individual piano notes.  I found `howler.js` as a library frequenty used but want to make sure this would be approved. https://github.com/goldfire/howler.js#documentation
+* Library of audio for individual piano notes.  I found `howler.js` as a library frequenty used https://github.com/goldfire/howler.js#documentation
 
 ## Implementation Timeline
 * **Friday/Weekend**: Setup project foundations so the keyboard shows up on screen and has basic functionality of playing notes through click and keyboard.
@@ -41,10 +41,10 @@ To Do List:
 [x] play note with keyboard
 [x] play multiple notes at once
 [x] change volume on screen
-[] add metronome
+[x] add metronome
 [] add recording option - if pause in middle of playback can you continue? restart? clear?
-[] update audio quality - sound like piano, multiple notes at once, fade in/out for no click
-[] format!!
+[x] update audio quality - sound like piano, multiple notes at once, fade in/out for no click
+[x] format!!
 [x] add github and linked in
 [] add welcome screen with music 
 
