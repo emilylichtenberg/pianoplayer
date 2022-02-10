@@ -81,7 +81,8 @@ class Key {
         // for (let i = startingOctave; i <= startingOctave + 2; i++) {
         //     octave.push(i);
         // }
-        const octave = [2,3,4]
+        const octave = [2,3,4];
+        // const octave = [1,2,3]
         for (let i = 0; i < octave.length; i++) {
             for (let j = 0; j < notes.length ; j++) {
                 let key = document.createElement("div");

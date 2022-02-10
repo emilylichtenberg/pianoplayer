@@ -83,6 +83,10 @@ In addition to Javascript, HTML and CSS, this project uses:
 ```
 
 ## Next Steps
+### Immediate
+* Format sliders to work with all browsers
+* Resize entire program to fit when zoomed at 100%
+### Longer Term
 * Create a record and playback feature
 * Add the ability to adjust starting octave
 * Utilize Tonal to have preselected chords and scales available to play
