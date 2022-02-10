@@ -3,7 +3,7 @@
 Link to live site: https://emilylichtenberg.github.io/pianoplayer/
 
 ## Background and Description
-I started playing piano when I was five years old so for my Javascript project I will be creating an interactive online keyboard.  The webpage will contain two octaves of a piano and different ways with which to interact.  See below for additional details.
+I started playing piano when I was five years old so I wanted to create an interactive online keyboard.  The webpage will contain three octaves of a piano and different ways with which to interact.  Users can set their pace with a metronome, adjust the volume or play around with different instrument outputs.  See below for additional details.
 
 ## Technologies
 In addition to Javascript, HTML and CSS, this project uses:
