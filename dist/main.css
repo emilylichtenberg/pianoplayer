@@ -1,3 +1,6 @@
+/*!****************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./src/styles/piano.css ***!
+  \****************************************************************************************************/
 html, body, header, nav, h1, a,
 ul, li, strong, main, button, i,
 section, img, div, h2, p, form,
@@ -14,6 +17,7 @@ span, article, footer, time, small {
 * {
     box-sizing: border-box;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    /* text-transform: uppercase; */
 }
 
 body {
@@ -23,14 +27,6 @@ body {
     flex-direction: column;
     align-items: center;
     user-select: none;
-}
-
-#canvas {
-    position: absolute;
-    background-color: lightsteelblue;
-    z-index: 20;
-    margin-top: 150px;
-    display: none;
 }
 
 .container {
@@ -51,8 +47,7 @@ body {
     cursor: pointer;
     border-bottom-left-radius: 5%;
     border-bottom-right-radius: 5%;
-    box-shadow: -2px 4px grey;
-    text-align: center;
+    box-shadow: -2px 4px grey;    text-align: center;
     align-content: flex-end;
     font-size: 20px;
     display: grid;
@@ -363,6 +358,7 @@ button:visited {
 .exit-instructions:hover{
     background-color: lightgray;
 }
+/*!*************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/sass-loader/dist/cjs.js!./src/index.scss ***!
+  \*************************************************************************************************************************************/
 
-
-/*# sourceMappingURL=main.css.map*/
