@@ -175,15 +175,27 @@ class Key {
         })
 
         document.addEventListener('keyup', (e) => {
-            if (!keyboardMap.includes(e.key)) return;
-            let pressedKey = e.key.toLocaleLowerCase() ;
-            let index = keyboardMap.indexOf(pressedKey);
-            let currentKey = allKeys[index];
-            this.stopNote(currentKey);
+            setTimeout(() => {
+                if (!keyboardMap.includes(e.key)) return;
+                let pressedKey = e.key.toLocaleLowerCase() ;
+                let index = keyboardMap.indexOf(pressedKey);
+                let currentKey = allKeys[index];
+                this.stopNote(currentKey);
+            }
+                , 75
+            )
+    
         })
 
         // startingOctave.addEventListener('change',this.createKeys.bind(this));
     }    
+    
+
+    // async function test() {
+    //     console.log('start timer');
+    //     await delay(1000);
+    //     console.log('after 1 second');
+    //   }
     
     playNote(key) {
         key.classList.add('active');
