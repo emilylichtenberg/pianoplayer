@@ -231,3 +231,52 @@ div.active.B{
     font-size: 1rem;
     color: navy;
 }
+
+
+/* RESOURCES */
+.resources {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    // margin: 2%;
+}
+
+.instructions {
+    font-size: 1.5rem;
+    // margin-top: 30px;
+    margin: 2%;
+    margin-left: 4%;
+    padding: 1%;
+    background-color: powderblue;
+    color: navy;
+    border-radius: 5%;
+    align-self: center;
+    cursor: pointer;
+}
+
+.instructions:hover {
+    background-color: #3895d3;
+}
+
+.resources button {
+    // color: gray;
+    background-color: transparent;
+    border: none;
+    text-decoration: none;
+    font-size: 1.5rem;
+}
+
+button:visited {
+    color: gray;
+}
+
+.links {
+    // align-items: center;
+    margin: 4%;
+}
+
+.title {
+    font-size: 3rem;
+    // margin-left: -15%;
+}
