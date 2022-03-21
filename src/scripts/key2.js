@@ -20,7 +20,7 @@ class Key {
             html5: true,
             buffer: true,
             onload() {
-                console.log('sound file loaded');
+                // console.log('sound file loaded');
             },
             onloaderror(error,message) {
                 console.log('Error:', {error, message})
@@ -32,7 +32,7 @@ class Key {
             html5: true,
             buffer: true,
             onload() {
-                console.log('sound file loaded');
+                // console.log('sound file loaded');
             },
             onloaderror(error,message) {
                 console.log('Error:', {error, message})
@@ -44,7 +44,7 @@ class Key {
             html5: true,
             buffer: true,
             onload() {
-                console.log('sound file loaded');
+                // console.log('sound file loaded');
             },
             onloaderror(error,message) {
                 console.log('Error:', {error, message})
@@ -56,7 +56,7 @@ class Key {
             html5: true,
             buffer: true,
             onload() {
-                console.log('sound file loaded');
+                // console.log('sound file loaded');
             },
             onloaderror(error,message) {
                 console.log('Error:', {error, message})
@@ -166,6 +166,8 @@ class Key {
         
         document.addEventListener('keydown', (e) => {
             if (e.repeat) return;
+            // debugger
+            if (!keyboardMap.includes(e.key)) return;
             let pressedKey = e.key.toLocaleLowerCase() ;
             let index = keyboardMap.indexOf(pressedKey);
             let currentKey = allKeys[index];
@@ -173,6 +175,7 @@ class Key {
         })
 
         document.addEventListener('keyup', (e) => {
+            if (!keyboardMap.includes(e.key)) return;
             let pressedKey = e.key.toLocaleLowerCase() ;
             let index = keyboardMap.indexOf(pressedKey);
             let currentKey = allKeys[index];
