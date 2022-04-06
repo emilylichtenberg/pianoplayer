@@ -94,60 +94,6 @@ class Key {
         // this.resetEventListeners();
     }
     
-    // resetEventListeners() {
-    //     const allKeys = Array.from(document.querySelector(".piano").children);
-
-    //     allKeys.forEach((key,i) => {
-    //         key.innerHTML = keyboardMap[i];
-    //         key.removeEventListener('mousedown', (e) => {
-    //             this.playNote(key);
-    //         });
-    //         key.removeEventListener('mouseup',(e) => {
-    //             this.stopNote(key);
-    //         });
-    //     });
-        
-    //     document.removeEventListener('keydown', (e) => {
-    //         if (e.repeat) return;
-    //         let pressedKey = e.key.toLocaleLowerCase() ;
-    //         let index = keyboardMap.indexOf(pressedKey);
-    //         let currentKey = allKeys[index];
-    //         this.playNote(currentKey);
-    //     });
-
-    //     document.removeEventListener('keyup', (e) => {
-    //         let pressedKey = e.key.toLocaleLowerCase() ;
-    //         let index = keyboardMap.indexOf(pressedKey);
-    //         let currentKey = allKeys[index];
-    //         this.stopNote(currentKey);
-    //     });
-
-    //     allKeys.forEach((key,i) => {
-    //         key.innerHTML = keyboardMap[i];
-    //         key.addEventListener('mousedown', (e) => {
-    //             this.playNote(key);
-    //         });
-    //         key.addEventListener('mouseup',(e) => {
-    //             this.stopNote(key);
-    //         });
-    //     });
-        
-    //     document.addEventListener('keydown', (e) => {
-    //         if (e.repeat) return;
-    //         let pressedKey = e.key.toLocaleLowerCase() ;
-    //         let index = keyboardMap.indexOf(pressedKey);
-    //         let currentKey = allKeys[index];
-    //         this.playNote(currentKey);
-    //     });
-
-    //     document.addEventListener('keyup', (e) => {
-    //         let pressedKey = e.key.toLocaleLowerCase() ;
-    //         let index = keyboardMap.indexOf(pressedKey);
-    //         let currentKey = allKeys[index];
-    //         this.stopNote(currentKey);
-    //     });
-
-    // }
 
     addEventListeners() {
         const allKeys = Array.from(document.querySelector(".piano").children);
@@ -190,12 +136,6 @@ class Key {
         // startingOctave.addEventListener('change',this.createKeys.bind(this));
     }    
     
-
-    // async function test() {
-    //     console.log('start timer');
-    //     await delay(1000);
-    //     console.log('after 1 second');
-    //   }
     
     playNote(key) {
         key.classList.add('active');
